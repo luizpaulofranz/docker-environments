@@ -1,5 +1,6 @@
 php:
   build: .
+  container_name: php_php72maria103
   ports:
     - "80:80"
     - "443:443"
@@ -7,16 +8,16 @@ php:
     - ./www:/var/www/html
   links: 
     - db  
-  container_name: php_php72maria103
 
 db:
   image: mariadb:10.3
+  container_name: db_php72maria103
   volumes:
    - /var/lib/mysql
   environment:
    - MYSQL_ROOT_PASSWORD=php
    - MYSQL_DATABASE=php
-  container_name: db_php72maria103
+
 #phpmyadmin o port 8080
 phpmyadmin:
   image: phpmyadmin/phpmyadmin
