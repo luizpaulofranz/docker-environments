@@ -1,0 +1,31 @@
+php:
+  build: .
+  container_name: php_php72mysql57
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - ./www:/var/www/html
+  links: 
+    - db  
+
+db:
+  image: mysql:5.7
+  container_name: db_php72mysql57
+  volumes:
+   - /var/lib/mysql
+  environment:
+   - MYSQL_ROOT_PASSWORD=php
+   - MYSQL_DATABASE=php
+
+#phpmyadmin o port 8080
+phpmyadmin:
+  image: phpmyadmin/phpmyadmin
+  container_name: phpmyadmin_php72mysql57
+  links: 
+   - db
+  ports: 
+   - "8080:80"
+  environment:
+   - PMA_USER=root
+   - PMA_PASSWORD=php
