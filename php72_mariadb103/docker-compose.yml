@@ -13,7 +13,7 @@ db:
   image: mariadb:10.3
   container_name: db_php72maria103
   volumes:
-   - /var/lib/mysql
+   - ./data:/var/lib/mysql
   environment:
    - MYSQL_ROOT_PASSWORD=php
    - MYSQL_DATABASE=php

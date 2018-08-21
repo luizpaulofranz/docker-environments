@@ -13,7 +13,7 @@ db:
   image: mysql:5.7
   container_name: db_php72mysql57
   volumes:
-   - /var/lib/mysql
+   - ./data:/var/lib/mysql
   environment:
    - MYSQL_ROOT_PASSWORD=php
    - MYSQL_DATABASE=php
